@@ -32,8 +32,8 @@
 #import "Three20Core/TTGlobalCoreLocale.h"
 #import "Three20Core/TTCorePreprocessorMacros.h"
 
-static CGFloat kThumbSize = 75.0f;
-static CGFloat kThumbSpacing = 4.0f;
+static CGFloat kThumbSize = 100;
+static CGFloat kThumbSpacing = 5;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
