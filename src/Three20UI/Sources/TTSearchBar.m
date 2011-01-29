@@ -210,7 +210,7 @@ static const CGFloat kIndexViewMargin = 4.0f;
     buttonWidth = _cancelButton.width + kButtonSpacing;
   }
 
-  CGFloat boxHeight = self.font.ttLineHeight + 8;
+  CGFloat boxHeight = self.font.ttLineHeight + 16;
   _boxView.frame = CGRectMake(kMarginX, floor(self.height/2 - boxHeight/2),
                               self.width - (kMarginX*2 + indexViewWidth + buttonWidth), boxHeight);
 
