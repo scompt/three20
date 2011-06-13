@@ -183,10 +183,7 @@ static const CGFloat kHeaderVisibleHeight = 60.0f;
   if([_headerView getStatus] == TTTableHeaderDragRefreshLoading) {
     [_headerView setStatus:TTTableHeaderDragRefreshPullToReload];
 
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:ttkDefaultTransitionDuration];
     _controller.tableView.contentInset = UIEdgeInsetsZero;
-    [UIView commitAnimations];
   }
 
   if ([model respondsToSelector:@selector(loadedTime)]) {
