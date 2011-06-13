@@ -70,9 +70,10 @@ static const CGFloat kHeaderVisibleHeight = 60.0f;
 	self = [super initWithController:controller];
   if (self) {
     // Add our refresh header
+    int viewHeight = -(_controller.tableView.contentInset.top + _controller.tableView.bounds.size.height);
     _headerView = [[TTTableHeaderDragRefreshView alloc]
                           initWithFrame:CGRectMake(0,
-                                                   -_controller.tableView.bounds.size.height,
+                                                   viewHeight,
                                                    _controller.tableView.width,
                                                    _controller.tableView.bounds.size.height)];
     _headerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
