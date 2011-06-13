@@ -92,6 +92,7 @@
 - (id)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	_status = TTTableHeaderDragRefreshPullToReload;
 
     _lastUpdatedLabel = [[UILabel alloc]
                          initWithFrame:CGRectMake(0.0f, frame.size.height - 30.0f,
@@ -189,7 +190,13 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (TTTableHeaderDragRefreshStatus) getStatus {
+  return _status;
+}
+
+
 - (void)setStatus:(TTTableHeaderDragRefreshStatus)status {
+  _status = status;
   switch (status) {
     case TTTableHeaderDragRefreshReleaseToReload: {
       [self showActivity:NO animated:NO];

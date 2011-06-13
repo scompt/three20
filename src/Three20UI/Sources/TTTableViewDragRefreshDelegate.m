@@ -165,6 +165,7 @@ static const CGFloat kHeaderVisibleHeight = 60.0f;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)modelDidStartLoad:(id<TTModel>)model {
+	if([_headerView getStatus] == TTTableHeaderDragRefreshReleaseToReload) {
   [_headerView setStatus:TTTableHeaderDragRefreshLoading];
 
   [UIView beginAnimations:nil context:NULL];
@@ -174,16 +175,19 @@ static const CGFloat kHeaderVisibleHeight = 60.0f;
   }
   [UIView commitAnimations];
 }
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)modelDidFinishLoad:(id<TTModel>)model {
-  [_headerView setStatus:TTTableHeaderDragRefreshPullToReload];
+  if([_headerView getStatus] == TTTableHeaderDragRefreshLoading) {
+    [_headerView setStatus:TTTableHeaderDragRefreshPullToReload];
 
-  [UIView beginAnimations:nil context:NULL];
-  [UIView setAnimationDuration:ttkDefaultTransitionDuration];
-  _controller.tableView.contentInset = UIEdgeInsetsZero;
-  [UIView commitAnimations];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:ttkDefaultTransitionDuration];
+    _controller.tableView.contentInset = UIEdgeInsetsZero;
+    [UIView commitAnimations];
+  }
 
   if ([model respondsToSelector:@selector(loadedTime)]) {
     NSDate* date = [model performSelector:@selector(loadedTime)];
@@ -197,23 +201,27 @@ static const CGFloat kHeaderVisibleHeight = 60.0f;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)model:(id<TTModel>)model didFailLoadWithError:(NSError*)error {
-  [_headerView setStatus:TTTableHeaderDragRefreshPullToReload];
+  if([_headerView getStatus] == TTTableHeaderDragRefreshLoading) {
+    [_headerView setStatus:TTTableHeaderDragRefreshPullToReload];
 
-  [UIView beginAnimations:nil context:NULL];
-  [UIView setAnimationDuration:ttkDefaultTransitionDuration];
-  _controller.tableView.contentInset = UIEdgeInsetsZero;
-  [UIView commitAnimations];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:ttkDefaultTransitionDuration];
+    _controller.tableView.contentInset = UIEdgeInsetsZero;
+    [UIView commitAnimations];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)modelDidCancelLoad:(id<TTModel>)model {
-  [_headerView setStatus:TTTableHeaderDragRefreshPullToReload];
+  if([_headerView getStatus] == TTTableHeaderDragRefreshLoading) {
+    [_headerView setStatus:TTTableHeaderDragRefreshPullToReload];
 
-  [UIView beginAnimations:nil context:NULL];
-  [UIView setAnimationDuration:ttkDefaultTransitionDuration];
-  _controller.tableView.contentInset = UIEdgeInsetsZero;
-  [UIView commitAnimations];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:ttkDefaultTransitionDuration];
+    _controller.tableView.contentInset = UIEdgeInsetsZero;
+    [UIView commitAnimations];
+  }
 }
 
 
