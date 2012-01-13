@@ -194,7 +194,7 @@
 		6E6456AA1184D4DA00F08CB1 /* TTPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456221184D4DA00F08CB1 /* TTPopupViewController.m */; };
 		6E6456AB1184D4DA00F08CB1 /* TTPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456231184D4DA00F08CB1 /* TTPostController.m */; };
 		6E6456AC1184D4DA00F08CB1 /* TTRecursiveProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456241184D4DA00F08CB1 /* TTRecursiveProgress.m */; };
-		6E6456AD1184D4DA00F08CB1 /* TTScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456251184D4DA00F08CB1 /* TTScrollView.m */; };
+		6E6456AD1184D4DA00F08CB1 /* TTScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456251184D4DA00F08CB1 /* TTScrollView.m */; settings = {COMPILER_FLAGS = "-O0"; }; };
 		6E6456AE1184D4DA00F08CB1 /* TTSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456261184D4DA00F08CB1 /* TTSearchBar.m */; };
 		6E6456AF1184D4DA00F08CB1 /* TTSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456271184D4DA00F08CB1 /* TTSearchDisplayController.m */; };
 		6E6456B01184D4DA00F08CB1 /* TTSearchlightLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456281184D4DA00F08CB1 /* TTSearchlightLabel.m */; };
