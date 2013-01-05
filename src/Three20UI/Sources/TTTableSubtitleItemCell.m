@@ -108,9 +108,11 @@
   CGFloat width = self.contentView.width - (height + kTableCellSmallMargin);
   CGFloat left = 0.0f;
 
+    CGFloat kKeySpacing = 12.0f;
   if (_imageView2) {
-    _imageView2.frame = CGRectMake(0, 0, height, height);
-    left = _imageView2.right + kTableCellSmallMargin;
+    _imageView2.frame = CGRectMake(kKeySpacing, floor(self.height/2 - _imageView2.image.size.width/2),
+                                   _imageView2.image.size.width, _imageView2.image.size.height);
+    left = kTableCellHPadding + _imageView2.right;
 
   } else {
     left = kTableCellHPadding;
@@ -125,7 +127,7 @@
     self.detailTextLabel.frame = CGRectMake(left, self.textLabel.bottom, width, subtitleHeight);
 
   } else {
-    self.textLabel.frame = CGRectMake(_imageView2.right + kTableCellSmallMargin, 0, width, height);
+    self.textLabel.frame = CGRectMake(left, 0, width, height);
     self.detailTextLabel.frame = CGRectZero;
   }
 }
